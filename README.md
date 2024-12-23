@@ -1,18 +1,30 @@
-### venv
-sudo apt install fzf python3.12-venv git gcc npm wget curl vim
-sudo apt-get install ripgrep
-
-### nerdfont
-wget https://github.com/ryanoasis/nerd-font/releases/download/v2.3.3/FantasqueSansMono.zip
-mkdir FantasqueSansMono
-unzip FantasqueSansMono.zip FantasqueSansMono
-sudo mv FantasqueSansMono /usr/share/fonts/FantasqueSansMono/
-sudo fc-cache -fv
+### 介绍
+<h2>适用于rust,go,python的开发</h2>
+<div>使用之前确保你安装了rust和go的开发环境</div>
 
 
+### 依赖环境
+fzf python3.12-venv git gcc npm wget curl vim ripgrep xclip
+
+<div>sudo apt install fzf python3.12-venv git gcc npm wget curl vim</div>
+<div>sudo apt-get install ripgrep xclip</div>
+
+### 字体要求 Nerd Font
+<div>wget https://github.com/ryanoasis/nerd-font/releases/download/v2.3.3/FantasqueSansMono.zip</div>
+<div>mkdir FantasqueSansMono</div>
+<div>unzip FantasqueSansMono.zip FantasqueSansMono</div>
+<div>sudo mv FantasqueSansMono /usr/share/fonts/FantasqueSansMono/<div>
+<div>sudo fc-cache -fv</div>
+
+### lazygit 
+访问GitHub： https://github.com/jesseduffield/lazygit
 
 
-### 使用系统剪切板  
-需要下载xclip   sudo apt-get install xclip
+### 注意
+<div>这里的rust使用rustaceanvim,所以不需要从mason上下载rust-analyzer，需要手动下载rust-analyzer,codelldb使用mason下载就好了</div>
+<div>rustup component add rust-analyzer</div>
+
+
+
 
 

@@ -42,7 +42,7 @@ return {
       git = {
         ignore = false,
       },
-      -- 切换project的时候刷新文档树
+      -- 切换project的时候刷新
       sync_root_with_cwd = true,
       respect_buf_cwd = true,
       update_focused_file = {
