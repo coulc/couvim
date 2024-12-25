@@ -38,6 +38,7 @@ return {
     }
 
     mason_tool_installer.setup {
+      automatic_installation = true,
       ensure_installed = {
         "prettier", -- 标准格式
         "stylua", -- lua
