@@ -12,7 +12,6 @@ return {
     }
 
     local opts = { noremap = true, silent = true }
-
     vim.keymap.set("n", "gl", "<cmd>Lspsaga peek_definition<cr>", opts) -- 查看声明处     o 编辑  q退出
     vim.keymap.set("n", "go", "<cmd>Lspsaga goto_definition<CR>", opts) -- 使用 Lspsaga 去声明地  or  <C-]>  返回 : <C-o>
     vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<cr>", opts) -- 跳转到下一个诊断问题

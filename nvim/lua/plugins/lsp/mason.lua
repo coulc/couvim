@@ -23,18 +23,18 @@ return {
     }
 
     mason_lspconfig.setup {
+      -- 自动安装已配置的服务器
+      automatic_installation = true,
       -- 供mason安装的服务器列表
       ensure_installed = {
         "clangd",
         "lua_ls",
         "pyright",
         "jdtls",
-        --        "rust_analyzer", -- rust  这里使用rustaceanvim 就不用在这里安装了   rustup component add rust-analyzer
-        --  下载不了gopls就设置代理
-        "gopls", -- export GO111MODULE=on    export GOPROXY=https://goproxy.io
+        "gopls",
+        -- 下载不了gopls就设置代理
+        -- export GO111MODULE=on    export GOPROXY=https://goproxy.io
       },
-      -- 自动安装已配置的服务器
-      automatic_installation = true,
     }
 
     mason_tool_installer.setup {
@@ -51,6 +51,7 @@ return {
         "eslint_d", -- js ts
         "goimports", -- go
         "delve", -- go 的调试器
+        "prosemd-lsp", -- md
         "codelldb", -- rust dap
       },
     }

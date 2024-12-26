@@ -42,7 +42,6 @@ return {
       git = {
         ignore = false,
       },
-      -- 切换project的时候刷新
     }
   end,
 }

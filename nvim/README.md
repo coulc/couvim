@@ -1,18 +1,6 @@
-### 展示
-![dashboard]("./png/neovim-dashboard.png")
-
-
-
-
 ### 介绍
 <h2>适用于rust,go,python的开发</h2>
 <div>使用之前确保你安装了rust和go的开发环境</div>
-
-
-
-
-
-
 
 
 ### 依赖环境
@@ -35,8 +23,4 @@ fzf python3.12-venv git gcc npm wget curl vim ripgrep xclip
 ### 注意
 <div>这里的rust使用rustaceanvim,所以不需要从mason上下载rust-analyzer，需要手动下载rust-analyzer,codelldb使用mason下载就好了</div>
 <div>rustup component add rust-analyzer</div>
-
-
-
-
 
