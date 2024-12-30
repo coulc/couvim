@@ -15,19 +15,26 @@ return {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
         --`:help vim.lsp.*`
-        -- 2024.12.14   使用lspsaga 的快捷键
         local opts = { buffer = ev.buf, silent = true }
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- 映射以在必要时重新启动lsp
       end,
     })
 
-    -- 用于启用自动完成(指定给每个lsp服务器配置)
+    -- 显式设置诊断行高亮的颜色
     local capabilities = cmp_nvim_lsp.default_capabilities()
-    local signs = { Error = "󱎘", Warn = "", Hint = "󱐋 ", Info = "󰋽" }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    local diagnostics = {
+      Error = { icon = "󱎘", hl = "DiagnosticSignError", linehl = "ErrorLine" },
+      Warn = { icon = "", hl = "DiagnosticSignWarn", linehl = "WarningLine" },
+      Info = { icon = "󰋽", hl = "DiagnosticSignInfo", linehl = "InfoLine" },
+      Hint = { icon = "󱐋", hl = "DiagnosticSignHint", linehl = "HintLine" },
+    }
+    for type, data in pairs(diagnostics) do
+      vim.fn.sign_define("DiagnosticSign" .. type, {
+        text = data.icon,
+        texthl = data.hl,
+        linehl = data.linehl,
+      })
     end
 
     mason_lspconfig.setup_handlers {

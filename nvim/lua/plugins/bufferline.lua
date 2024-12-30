@@ -28,6 +28,7 @@
 return {
   "akinsho/bufferline.nvim",
   version = "*",
+  event = "VeryLazy",
   dependencies = { "nvim-tree/nvim-web-devicons", "moll/vim-bbye" },
   config = function()
     require("bufferline").setup {

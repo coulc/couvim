@@ -62,10 +62,14 @@ return {
           },
         },
       },
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
+      -- window = {
+      --   completion = {
+      --     border = "rounded", -- 设置补全窗口为圆角边框
+      --   },
+      --   documentation = {
+      --     border = "rounded", -- 设置文档浮动窗口为圆角边框
+      --   },
+      -- },
 
       completion = {
         completeopt = "menu,menuone,preview,noselect",

@@ -6,15 +6,15 @@ return {
 
   config = function()
     vim.g.rustaceanvim = {
-      server = {
-        default_settings = {
-          ["rust-analyzer"] = {
-            diagnostics = {
-              disabled = { "unlinked-file" }, -- 禁用 unlinked-file 警告
-            },
-          },
-        },
-      },
+      -- server = {
+      --   default_settings = {
+      --     ["rust-analyzer"] = {
+      --       diagnostics = {
+      --         disabled = { "unlinked-file" }, -- 禁用 unlinked-file 警告
+      --       },
+      --     },
+      --   },
+      -- },
     }
   end,
 }
