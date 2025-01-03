@@ -33,7 +33,7 @@ return {
         "jdtls",
         "gopls",
         -- 下载不了gopls就设置代理
-        --  export GO111MODULE=on    export GOPROXY=https://goproxy.io
+        --  export GO111MODULE=on     export GOPROXY=https://goproxy.io
       },
     }
 

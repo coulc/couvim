@@ -7,7 +7,7 @@ vim.o.sidescrolloff = 8
 -- 使用行号
 vim.wo.number = true
 -- 使用相对行号
--- vim.wo.relativenumber = true
+vim.wo.relativenumber = true
 -- 高亮所在行
 vim.wo.cursorline = true
 -- 显示左侧图标指示列
@@ -76,5 +76,5 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 -- 共享剪切板
 vim.opt.clipboard = "unnamedplus" -- 需要下载xclip   sudo apt-get install xclip
--- 设置光标形状
--- vim.opt.guicursor = ""
+-- 设置所有模式的光标形状为块状
+-- vim.opt.guicursor = "n-v-c:block,i:block,c:block"
