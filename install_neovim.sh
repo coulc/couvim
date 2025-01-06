@@ -22,14 +22,29 @@ apt update
 echo "安装基础工具包..."
 apt install  fzf python3.12-venv git gcc npm wget curl unzip && apt-get install ripgrep xclip
 
-# 下载并安装最新版Neovim
-echo "下载并安装Neovim..."
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz 
-tar xzvf nvim-linux64.tar.gz
-mv nvim-linux64 /usr/local/nvim
-rm -rf nvim-linux64.tar.gz 
+# 检查 Neovim 是否已安装
+if command -v nvim &>/dev/null; then
+    echo "Neovim 已经安装，跳过安装过程。"
+else
+    # 提问用户是否需要下载和安装 Neovim
+    echo "Neovim 未安装。是否需要下载并安装最新版本的 Neovim? (y/n)"
+    read install_neovim
 
-# 提问用户使用什么命令启动Neovim
+    if [[ "$install_neovim" =~ ^[Yy]$ ]]; then
+        # 下载并安装 Neovim
+        echo "下载并安装 Neovim..."
+        wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+        tar xzvf nvim-linux64.tar.gz
+        mv nvim-linux64 /usr/local/nvim
+        rm -rf nvim-linux64.tar.gz
+        echo "Neovim 安装完成！"
+    else
+        echo "未安装 Neovim，跳过安装过程。"
+        exit 3
+    fi
+fi
+
+# 提问用户使用什么命令启动 Neovim
 echo "请输入您希望使用的命令来启动 Neovim (例如：nvim 或 nv)："
 read neovim_command
 
@@ -39,15 +54,17 @@ if [ -e "/usr/local/bin/$neovim_command" ]; then
   read answer
   if [[ ! "$answer" =~ ^[Yy]$ ]]; then
     echo "Aborting."
-    exit 1
+    exit 4
   fi
 fi
 
+# 创建符号链接
 ln -sf /usr/local/nvim/bin/nvim /usr/local/bin/$neovim_command
 
-# 将配置文件移动到用户系统配置文件
+# 将配置文件移动到用户的系统配置目录
 mv nvim ~/.config/nvim
 
+echo "Neovim 配置已设置完毕，您可以通过 '$neovim_command' 启动 Neovim。"
 
 
 # 下载并安装GeistMono Nerd Font
@@ -56,47 +73,10 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/GeistMono.
 unzip GeistMono.zip -d /usr/share/fonts/
 rm -rf /usr/share/fonts/README.md  /usr/share/fonts/LICENSE
 fc-cache -fv
-rm GeistMono.zip
-
-
-# 检测用户是否在使用 GNOME Terminal（Ubuntu 默认终端）
-if [[ $XDG_CURRENT_DESKTOP == "GNOME" && $TERM == *gnome* ]]; then
-    echo "检测到 Ubuntu 默认终端 GNOME Terminal！"
-    
-    # 提示用户是否需要更改字体
-    echo "是否需要自动更改字体为 GeistMono Nerd Font? (y/n)"
-    read modify_font
-    
-    if [[ "$modify_font" =~ ^[Yy]$ ]]; then
-        # 提示用户输入字号并验证
-        while true; do
-            echo "请输入您希望设置的字号 (范围：6 - 72)："
-            read font_size
-            
-            # 检查用户输入的字号是否为有效的正整数，并在 6 到 72 范围内
-            if [[ "$font_size" =~ ^[0-9]+$ ]] && [ "$font_size" -ge 6 ] && [ "$font_size" -le 72 ]; then
-                break
-            else
-                echo "无效的字号！请输入一个在 6 到 72 之间的数字。"
-            fi
-        done
-        
-        # 获取当前 GNOME Terminal 配置文件 ID
-        profile_id=$(dconf list /org/gnome/terminal/legacy/profiles:/ | head -n 1 | tr -d '/')
-        
-        # 设置 GNOME Terminal 的字体
-        dconf write /org/gnome/terminal/legacy/profiles:/:$profile_id/font "'GeistMono Nerd Font $font_size'"
-        
-        echo "GNOME Terminal 字体已设置为 GeistMono Nerd Font $font_size"
-    else
-        echo "未修改 GNOME Terminal 字体。"
-    fi
-else
-    echo "当前终端不是 Ubuntu 默认终端 GNOME Terminal，未修改字体设置,请自行设置。"
-fi
 
 
 # ------------------------------------------------------
+
 
 # 询问用户是否安装 Rust、Go、Python 和 Java 的开发环境
 echo "您是否希望安装开发环境(Rust,Go,Python,Java)?"
@@ -105,7 +85,7 @@ read install_choice
 
 if [[ ! "$install_choice" =~ ^[Yy]$ ]]; then
   echo "取消安装开发环境。退出脚本。"
-  exit 0
+  exit 5
 fi
 
 # 检查 Rust 是否安装
@@ -222,3 +202,4 @@ echo "安装完成！"
 
 
 # 脚本不出意外的话 10 月一更
+
