@@ -65,7 +65,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/GeistMono.
 unzip GeistMono.zip -d /usr/share/fonts/
 rm -rf /usr/share/fonts/README.md  /usr/share/fonts/LICENSE
 fc-cache -fv
-
+rm -rf GeistMono.zip
 
 # ------------------------------------------------------
 
