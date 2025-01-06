@@ -22,26 +22,18 @@ apt update
 echo "安装基础工具包..."
 apt install  fzf python3.12-venv git gcc npm wget curl unzip && apt-get install ripgrep xclip
 
-# 检查 Neovim 是否已安装
-if command -v nvim &>/dev/null; then
-    echo "Neovim 已经安装，跳过安装过程。"
-else
-    # 提问用户是否需要下载和安装 Neovim
-    echo "Neovim 未安装。是否需要下载并安装最新版本的 Neovim? (y/n)"
-    read install_neovim
 
-    if [[ "$install_neovim" =~ ^[Yy]$ ]]; then
-        # 下载并安装 Neovim
-        echo "下载并安装 Neovim..."
-        wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-        tar xzvf nvim-linux64.tar.gz
-        mv nvim-linux64 /usr/local/nvim
-        rm -rf nvim-linux64.tar.gz
-        echo "Neovim 安装完成！"
-    else
-        echo "未安装 Neovim，跳过安装过程。"
-        exit 3
-    fi
+# 提问用户是否需要下载和安装 Neovim
+echo "是否需要下载并安装Neovim? (y/n)"
+read install_neovim
+if [[ "$install_neovim" =~ ^[Yy]$ ]]; then
+    # 下载并安装 Neovim
+    echo "下载并安装 Neovim..."
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+    tar xzvf nvim-linux64.tar.gz
+    mv nvim-linux64 /usr/local/nvim
+    rm -rf nvim-linux64.tar.gz
+    echo "Neovim 安装完成！"
 fi
 
 # 提问用户使用什么命令启动 Neovim
@@ -62,7 +54,7 @@ fi
 ln -sf /usr/local/nvim/bin/nvim /usr/local/bin/$neovim_command
 
 # 将配置文件移动到用户的系统配置目录
-mv nvim ~/.config/nvim
+mv nvim $HOME/.config/nvim
 
 echo "Neovim 配置已设置完毕，您可以通过 '$neovim_command' 启动 Neovim。"
 
