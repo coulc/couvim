@@ -17,6 +17,10 @@ return {
       indent = {
         enable = true,
       },
+      -- 代码折叠
+      fold = {
+        enable = true,
+      },
       -- 启用自动标记
       autotag = {
         enable = true,
@@ -38,6 +42,7 @@ return {
         "markdown",
         "html",
         "rust",
+        "ron",
         "css",
         "typescript",
         "json",
@@ -53,11 +58,5 @@ return {
         },
       },
     }
-    -- 开启 Folding 模块  zc 折叠  zo 展开
-    -- vim.opt.foldmethod = "expr"
-    -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    -- -- 默认不要折叠
-    -- -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
-    -- vim.opt.foldlevel = 99
   end,
 }

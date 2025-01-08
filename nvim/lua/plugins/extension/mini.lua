@@ -1,6 +1,6 @@
 return {
-  "echasnovski/mini.nvim",
-  event = "VeryLazy",
+  "echasnovski/mini.indentscope",
+  event = "BufRead",
   config = function()
     require("mini.indentscope").setup {
       symbol = "│",

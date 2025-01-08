@@ -1,6 +1,8 @@
 return {
   "nvimdev/dashboard-nvim",
-  lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
+
+  event = "VimEnter",
+
   opts = function()
     local logo = [[
 ██╗  ██╗██╗███╗   ██╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
@@ -21,14 +23,14 @@ return {
     --  ███████████ ███    ███ █████████ █████ █████ ████ █████
     -- ██████  █████████████████████ ████ █████ █████ ████ ██████
     --
-    logo = string.rep("\n", 4) .. logo .. "\n\n"
+    logo = string.rep("\n", 6) .. logo .. "\n\n"
 
     local opts = {
       theme = "doom",
       hide = {
         -- this is taken care of by lualine
         -- enabling this messes up the actual laststatus setting after loading a file
-        statusline = false,
+        statusline = true,
       },
       config = {
         header = vim.split(logo, "\n"),
@@ -39,8 +41,8 @@ return {
 					{ action = "Telescope oldfiles",                             desc = " Recent Files",    icon = " ",  key = "o" },
 					{ action = "Telescope live_grep",                            desc = " Find Keywords",   icon = " ",	key = "g" },
 					{ action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ",  key = "s" },
-          { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ",  key = "L" },
-          { action = "Telescope projects",                             desc = " Projects",        icon = " ",  key = "P"  },
+          { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ",  key = "l" },
+          { action = "Telescope projects",                             desc = " Projects",        icon = " ",  key = "p"  },
           { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ",  key = "q" },
 
         },
@@ -49,7 +51,7 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           return {
-            "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. " ms  ",
+            "󱐋 neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. " ms  ",
           }
         end,
       },

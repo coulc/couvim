@@ -2,12 +2,12 @@ return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter" },
   dependencies = {
-    "hrsh7th/cmp-buffer", -- 推荐当前缓冲区文本源
-    "hrsh7th/cmp-path", -- 文件路径源
-    "L3MON4D3/LuaSnip", -- 片段引擎
-    "saadparwaiz1/cmp_luasnip", -- 片段完成源
-    "rafamadriz/friendly-snippets", -- 一组许多不同的有用片段
-    "hrsh7th/cmp-cmdline", -- 浮窗命令行
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
+    "hrsh7th/cmp-cmdline",
     "onsails/lspkind.nvim",
   },
   config = function()
@@ -21,9 +21,7 @@ return {
     cmp.setup {
       formatting = {
         format = lspkind.cmp_format {
-          mode = "symbol_text", -- shjk:ow only symbol annotations   显示图标和文字
-          -- preset = "codicons", -- 设置风格为 vsc 这里我自定义图标
-
+          mode = "symbol_text", -- 显示图标和文字
           maxwidth = {
             -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             -- can also be a function to dynamically calculate max width such as
@@ -62,19 +60,20 @@ return {
           },
         },
       },
-      window = {
-        completion = {
-          border = "rounded", -- 设置补全窗口为圆角边框
-        },
-        documentation = {
-          border = "rounded", -- 设置文档浮动窗口为圆角边框
-        },
-      },
+
+      -- window = {
+      --   completion = {
+      --     border = "rounded", -- 设置补全窗口为圆角边框
+      --   },
+      --   documentation = {
+      --     border = "rounded", -- 设置文档浮动窗口为圆角边框
+      --   },
+      -- },
 
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
-      snippet = { -- 配置cmp如何与引擎交互
+      snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,

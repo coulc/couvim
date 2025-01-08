@@ -1,18 +1,24 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  event = "VeryLazy",
+
+  event = "BufReadPre",
+
   config = function()
     require("lualine").setup {
       options = {
         icons_enabled = true,
         theme = "auto",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+
         disabled_filetypes = {
-          statusline = {},
+          statusline = { "dashboard" },
           winbar = {},
         },
+
         ignore_focus = {},
         always_divide_middle = true,
         always_show_tabline = true,
@@ -42,7 +48,7 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = { "nvim-tree" },
+      extensions = { "nvim-tree", "aerial" },
     }
   end,
 }

@@ -53,7 +53,7 @@ vim.o.writebackup = false
 vim.o.swapfile = false
 -- smaller updatetime
 vim.o.updatetime = 200
--- 设置 timeoutlen 为等待键盘快捷键连击时间200毫秒，可根据需要设置
+-- 设置 timeoutlen 为等待键盘快捷键连击时间200毫秒
 vim.o.timeoutlen = 200
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
@@ -78,3 +78,5 @@ vim.o.showmode = false
 vim.opt.clipboard = "unnamedplus" -- 需要下载xclip   sudo apt-get install xclip
 -- 设置所有模式的光标形状为块状
 -- vim.opt.guicursor = "n-v-c:block,i:block,c:block"
+
+-- vim.o.statusline = ""

@@ -1,6 +1,9 @@
 return {
   "folke/noice.nvim",
-  event = "VeryLazy",
+
+  event = "VimEnter",
+  -- event = "CmdlineEnter",
+
   opts = {
     -- add any options here
   },
@@ -33,6 +36,7 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
+
       views = {
         cmdline_popup = {
           position = {
@@ -42,6 +46,9 @@ return {
           size = {
             width = 60, -- 这里设置命令行的宽度
             height = "auto", -- 这里设置命令行的高度，"auto" 表示自动高度
+          },
+          win_options = {
+            winblend = 20,
           },
         },
       },

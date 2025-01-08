@@ -5,6 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
+
   config = function()
     local lspconfig = require "lspconfig"
     local mason_lspconfig = require "mason-lspconfig"

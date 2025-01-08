@@ -1,6 +1,6 @@
 return {
   "ahmedkhalf/project.nvim",
-  event = "VeryLazy",
+  event = "BufReadPre",
   config = function()
     require("project_nvim").setup {}
   end,

@@ -7,12 +7,9 @@ return {
     conform.setup {
       -- 每种不同文件类型的格式化程序
       formatters_by_ft = {
-        javascript = { "prettier" },
-        java = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
         go = { "goimports" },
-        rust = { "rustfmt" },
       },
       -- 启动保存功能的格式
       format_on_save = {

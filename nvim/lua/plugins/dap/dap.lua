@@ -1,12 +1,13 @@
 return {
   "mfussenegger/nvim-dap",
-  event = "VeryLazy",
+  -- event = "VeryLazy",
+  cmd = "DapContinue",
   dependencies = {
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
     "nvim-neotest/nvim-nio", -- dapui
     "nvim-telescope/telescope-dap.nvim",
-    "mfussenegger/nvim-dap-python",
+    { "mfussenegger/nvim-dap-python", event = "BufReadPre" },
     "leoluz/nvim-dap-go",
   },
 
@@ -14,34 +15,10 @@ return {
     local dap = require "dap"
     local dapui = require "dapui"
     local dvt = require "nvim-dap-virtual-text"
-
-    -- 手动配置
-    -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-    -- sudo apt install python3-debugpy
-    -- dap.adapters.python = {
-    --   type = "executable",
-    --   command = "/usr/bin/python3",
-    --   args = { "-m", "debugpy.adapter" },
-    -- }
-    -- dap.configurations.python = {
-    --   {
-    --     type = "python",
-    --     request = "launch",
-    --     name = "launch file",
-    --     program = "${file}",
-    --     pythonpath = function()
-    --       return "/usr/bin/python3"
-    --     end,
-    --   },
-    -- }
-
     -- 插件自动配置
     require("dap-python").setup()
     require("dap-go").setup()
 
-    -- vim.keymap.set("n", "<F5>", function()
-    --   require("dap").continue()
-    -- end)
     vim.keymap.set("n", "<F5>", function()
       require("telescope").extensions.dap.configurations {}
     end)
@@ -104,6 +81,7 @@ return {
     dap.listeners.before.event_exited.dapui_config = function()
       dapui.close()
     end
+    --
     -- nvim-dap-virtual-text
     dvt.setup()
 

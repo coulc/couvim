@@ -23,8 +23,8 @@ map("n", "<C-l>", "<C-w>l", opt)
 
 --Visual模式
 -- 缩进代码
-map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
+map("v", "<", "<gv", opt)
 -- 上下移动选中文本
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
@@ -39,7 +39,7 @@ map("n", "<C-d>", "9j", opt)
 
 -- 插入模式 退出
 map("i", "jk", "<ESC>", opt)
--- 试图模式 退出
+-- 视图模式 退出
 map("v", "jk", "<ESC>", opt)
 
 -- nvim-tree
@@ -49,9 +49,10 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 -- 左右Tab切换
 map("n", "<A-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<A-l>", ":BufferLineCycleNext<CR>", opt)
+
 -- 关闭
 --"moll/vim-bbye"
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
-map("n", "<leader>bh", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
+map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)

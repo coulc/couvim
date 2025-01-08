@@ -8,12 +8,9 @@ return {
   config = function()
     local autopairs = require "nvim-autopairs"
     autopairs.setup {
+      check_ts = true,
       ts_config = {
-        lua = { "string" }, -- 不在lua的string节点中补全
-        javascript = { "template_string" }, -- 不在javascript template_string节点补全
-        python = { "string" }, -- 不在python的string节点中补全
-        java = { "string" },
-        go = { "string" }, -- 不在go的string节点中补全
+        ["*"] = { "string", "comment" }, -- "*" 表示匹配所有语言
       },
     }
 
