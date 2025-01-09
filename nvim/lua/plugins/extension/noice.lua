@@ -47,9 +47,6 @@ return {
             width = 60, -- 这里设置命令行的宽度
             height = "auto", -- 这里设置命令行的高度，"auto" 表示自动高度
           },
-          win_options = {
-            winblend = 20,
-          },
         },
       },
     }

@@ -1,6 +1,6 @@
 return {
   "nvimdev/lspsaga.nvim",
-  cmd = "Lspsaga",
+  event = "Lspattach",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",

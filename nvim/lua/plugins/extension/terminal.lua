@@ -1,6 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
-  cmd = "ToggleTerm",
+  -- cmd = "ToggleTerm",
+  event = "BufReadPre",
   config = function()
     require("toggleterm").setup {
       open_mapping = [[<c-\>]],

@@ -22,36 +22,47 @@ return {
       end,
     })
 
-    -- 显式设置诊断行高亮的颜色
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    -- 高亮行 但是得配合everforset主题使用
+    -- local diagnostics = {
+    --   Error = { icon = "󱎘", hl = "DiagnosticSignError", linehl = "ErrorLine" },
+    --   Warn = { icon = "", hl = "DiagnosticSignWarn", linehl = "WarningLine" },
+    --   Info = { icon = "󰋽", hl = "DiagnosticSignInfo", linehl = "InfoLine" },
+    --   Hint = { icon = "󱐋", hl = "DiagnosticSignHint", linehl = "HintLine" },
+    -- }
+    --
+    -- for type, data in pairs(diagnostics) do
+    --   vim.fn.sign_define("DiagnosticSign" .. type, {
+    --     text = data.icon,
+    --     texthl = data.hl,
+    --     linehl = data.linehl,
+    --   })
+    -- end
+
     local diagnostics = {
-      Error = { icon = "󱎘", hl = "DiagnosticSignError", linehl = "ErrorLine" },
-      Warn = { icon = "", hl = "DiagnosticSignWarn", linehl = "WarningLine" },
-      Info = { icon = "󰋽", hl = "DiagnosticSignInfo", linehl = "InfoLine" },
-      Hint = { icon = "󱐋", hl = "DiagnosticSignHint", linehl = "HintLine" },
+      Error = { icon = "󱎘", hl = "DiagnosticSignError" },
+      Warn = { icon = "", hl = "DiagnosticSignWarn" },
+      Info = { icon = "", hl = "DiagnosticSignInfo" },
+      Hint = { icon = "󱐋", hl = "DiagnosticSignHint" },
     }
     for type, data in pairs(diagnostics) do
       vim.fn.sign_define("DiagnosticSign" .. type, {
         text = data.icon,
         texthl = data.hl,
-        linehl = data.linehl,
       })
     end
 
+    local capabilities = cmp_nvim_lsp.default_capabilities()
     mason_lspconfig.setup_handlers {
-      -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup {
           capabilities = capabilities,
         }
       end,
       ["lua_ls"] = function()
-        -- -配置lua服务器(附带特殊设置)
         lspconfig["lua_ls"].setup {
           capabilities = capabilities,
           settings = {
             Lua = {
-              -- 使语言服务器全局识别“vim
               diagnostics = {
                 globals = { "vim" },
               },
@@ -76,4 +87,13 @@ return {
       end,
     }
   end,
+  vim.diagnostic.config {
+    virtual_text = {
+      prefix = "󰊠 ", --    󰑊
+      spacing = 4,
+    },
+    signs = true,
+    underline = false,
+    severity_sort = true,
+  },
 }

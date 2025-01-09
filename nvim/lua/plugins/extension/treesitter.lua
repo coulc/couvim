@@ -17,10 +17,6 @@ return {
       indent = {
         enable = true,
       },
-      -- 代码折叠
-      fold = {
-        enable = true,
-      },
       -- 启用自动标记
       autotag = {
         enable = true,
@@ -46,16 +42,6 @@ return {
         "css",
         "typescript",
         "json",
-      },
-      -- 增量选择
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
       },
     }
   end,
