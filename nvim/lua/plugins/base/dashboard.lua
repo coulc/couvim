@@ -49,6 +49,7 @@ return {
 
         footer = function()
           local stats = require("lazy").stats()
+          vim.api.nvim_set_hl(0, "StartupTime", { fg = "#FF5733", bg = "#282828", bold = true })
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           return {
             "󱐋 neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. " ms  ",

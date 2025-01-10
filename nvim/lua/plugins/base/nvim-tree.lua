@@ -10,26 +10,39 @@ return {
     vim.g.loaded_netrwPlugin = 1
 
     require("nvim-tree").setup {
-      view = {
-        --宽度
-        width = 30,
-        side = "left",
+      filters = { dotfiles = false },
+      disable_netrw = true,
+      hijack_cursor = true,
+      sync_root_with_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_root = false,
       },
-      -- 更改文件夹箭头图标
+      view = {
+        width = 30,
+        preserve_window_proportions = true,
+      },
       renderer = {
+        root_folder_label = false,
+        highlight_git = true,
         indent_markers = {
           enable = true,
         },
         icons = {
           glyphs = {
+            default = "󰈚",
             folder = {
-              arrow_closed = "", -- 文件夹关闭时
-              arrow_open = "", -- 文件夹打开时
+              arrow_closed = "",
+              arrow_open = "",
+              default = "",
+              empty = "",
+              empty_open = "",
+              open = "",
+              symlink = "",
             },
           },
         },
       },
-      -- 禁用窗口选择器 ，使浏览器能够在窗口分割时正常工作
       actions = {
         open_file = {
           window_picker = {

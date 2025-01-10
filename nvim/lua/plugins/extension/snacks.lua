@@ -1,53 +1,48 @@
 return {
   "folke/snacks.nvim",
+  -- priority = 1000,
+  -- lazy = false,
   event = "BufReadPre",
-  opts = function()
-    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 
-    --  vim.cmd [[hi SnacksNormal guibg=#293128]]
+  config = function()
+    vim.api.nvim_set_hl(0, "rainbowred", { fg = "#e06c75" })
+    vim.api.nvim_set_hl(0, "rainbowyellow", { fg = "#e5c07b" })
+    vim.api.nvim_set_hl(0, "rainbowblue", { fg = "#61afef" })
+    vim.api.nvim_set_hl(0, "rainboworange", { fg = "#d19a66" })
+    vim.api.nvim_set_hl(0, "rainbowgreen", { fg = "#98c379" })
+    vim.api.nvim_set_hl(0, "rainbowviolet", { fg = "#c678dd" })
+    vim.api.nvim_set_hl(0, "rainbowcyan", { fg = "#56b6c2" })
+
     local highlight = {
-      "RainbowRed",
-      "RainbowYellow",
-      "RainbowBlue",
-      "RainbowOrange",
-      "RainbowGreen",
-      "RainbowViolet",
-      "RainbowCyan",
+      "rainbowred",
+      "rainbowyellow",
+      "rainbowblue",
+      "rainboworange",
+      "rainbowgreen",
+      "rainbowviolet",
+      "rainbowcyan",
     }
+
     vim.g.rainbow_delimiters = { highlight = highlight }
-    return {
-      scroll = {
-        enabled = true,
-      },
+
+    require("snacks").setup {
       indent = {
         only_scope = true,
         enabled = true,
         scope = {
-          enabled = true, -- enable highlighting the current scope
+          enabled = true,
           priority = 200,
           char = "│",
-          underline = true, -- underline the start of the scope
-          only_current = false, -- only show scope in the current window
-          --hl = "SnacksIndentScope", ---@type string|string[] hl group for scopes
+          underline = true,
+          only_current = false,
           hl = highlight,
         },
         hl = highlight,
         chunk = {
-          -- when enabled, scopes will be rendered as chunks, except for the
-          -- top-level scope which will be rendered as a scope.
           enabled = true,
-          -- only show chunk scopes in the current window
           only_current = false,
           priority = 200,
           hl = highlight,
-
-          -- hl = "SnacksIndentChunk", ---@type string|string[] hl group for chunk scopes
           char = {
             corner_top = "╭",
             corner_bottom = "╰",
@@ -58,6 +53,17 @@ return {
         },
         blank = { hl = highlight },
       },
+
+      bigfile = { enabled = true },
+      scroll = { enabled = true },
+
+      -- false
+      dashboard = { enabled = false },
+      input = { enabled = false },
+      notifier = { enabled = false },
+      quickfile = { enabled = false },
+      statuscolumn = { enabled = false },
+      words = { enabled = false },
     }
   end,
 }

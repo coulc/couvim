@@ -32,10 +32,10 @@ return {
       sections = {
         lualine_a = { "mode" },
         lualine_b = { { "filename", path = 3 } },
-        lualine_c = {},
+        lualine_c = { "branch" },
         lualine_x = { "diagnostics" },
         lualine_y = { "progress" },
-        lualine_z = { "branch", "filetype" },
+        lualine_z = { "filetype" },
       },
       inactive_sections = {
         lualine_a = {},

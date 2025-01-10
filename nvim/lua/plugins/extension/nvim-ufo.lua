@@ -1,54 +1,44 @@
--- return {
---   "kevinhwang91/nvim-ufo",
---   event = "VeryLazy",
---   dependencies = {
---     "kevinhwang91/promise-async",
---   },
---   config = function()
---     local ufo = require "ufo"
---     ufo.setup {}
---   end,
--- }
-
 return {
   "kevinhwang91/nvim-ufo",
-  event = "BufRead",
+  event = "bufread",
   dependencies = "kevinhwang91/promise-async",
   version = "v1.4.0",
   config = function()
-    vim.o.foldcolumn = "1"
-    vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+    -- vim.o.foldcolumn = "1"
+    -- vim.o.foldcolumn = "auto:9"
+    vim.o.foldcolumn = "0"
+    vim.o.foldlevel = 99 -- using ufo provider need a large value, feel free to decrease the value
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
     vim.o.foldmethod = "manual"
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-    local handler = function(virtText, lnum, endLnum, width, truncate)
-      local newVirtText = {}
-      local suffix = (" 󰁂 %d "):format(endLnum - lnum)
-      local sufWidth = vim.fn.strdisplaywidth(suffix)
-      local targetWidth = width - sufWidth
-      local curWidth = 0
-      for _, chunk in ipairs(virtText) do
-        local chunkText = chunk[1]
-        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-        if targetWidth > curWidth + chunkWidth then
-          table.insert(newVirtText, chunk)
+    local handler = function(virttext, lnum, endlnum, width, truncate)
+      local newvirttext = {}
+      local suffix = (" 󰁂 %d "):format(endlnum - lnum)
+      local sufwidth = vim.fn.strdisplaywidth(suffix)
+      local targetwidth = width - sufwidth
+      local curwidth = 0
+      for _, chunk in ipairs(virttext) do
+        local chunktext = chunk[1]
+        local chunkwidth = vim.fn.strdisplaywidth(chunktext)
+        if targetwidth > curwidth + chunkwidth then
+          table.insert(newvirttext, chunk)
         else
-          chunkText = truncate(chunkText, targetWidth - curWidth)
-          local hlGroup = chunk[2]
-          table.insert(newVirtText, { chunkText, hlGroup })
-          chunkWidth = vim.fn.strdisplaywidth(chunkText)
+          chunktext = truncate(chunktext, targetwidth - curwidth)
+          local hlgroup = chunk[2]
+          table.insert(newvirttext, { chunktext, hlgroup })
+          chunkwidth = vim.fn.strdisplaywidth(chunktext)
           -- str width returned from truncate() may less than 2nd argument, need padding
-          if curWidth + chunkWidth < targetWidth then
-            suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+          if curwidth + chunkwidth < targetwidth then
+            suffix = suffix .. (" "):rep(targetwidth - curwidth - chunkwidth)
           end
           break
         end
-        curWidth = curWidth + chunkWidth
+        curwidth = curwidth + chunkwidth
       end
-      table.insert(newVirtText, { suffix, "MoreMsg" })
-      return newVirtText
+      table.insert(newvirttext, { suffix, "moremsg" })
+      return newvirttext
     end
 
     require("ufo").setup {

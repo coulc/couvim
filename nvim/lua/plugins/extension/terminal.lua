@@ -1,6 +1,5 @@
 return {
   "akinsho/toggleterm.nvim",
-  -- cmd = "ToggleTerm",
   event = "BufReadPre",
   config = function()
     require("toggleterm").setup {
