@@ -1,9 +1,9 @@
 # 截图
-[!demo1](./demo_png/demo1.png)
-[!demo2](./demo_png/demo2.png)
-[!demo3](./demo_png/demo3.png)
-[!demo4](./demo_png/demo4.png)
-[!demo5](./demo_png/demo5.png)
+![demo1](./demo_png/demo1.png)
+![demo2](./demo_png/demo2.png)
+![demo3](./demo_png/demo3.png)
+![demo4](./demo_png/demo4.png)
+![demo5](./demo_png/demo5.png)
 
 
 
