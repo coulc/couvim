@@ -80,3 +80,10 @@ vim.opt.clipboard = "unnamedplus" -- 需要下载xclip   sudo apt-get install xc
 -- vim.opt.guicursor = "n-v-c:block,i:block,c:block"
 
 -- vim.o.statusline = ""
+
+-- vim.o.list = true
+--
+-- vim.opt.listchars = {
+--   -- eol = "⏎",
+--   eol = "↵",
+-- }

@@ -26,12 +26,20 @@ return {
 -- }
 
 -- return {
---
 --     "sainnhe/everforest",
 --   lazy = false,
 --   priority = 1000,
 --   config = function()
 --     vim.g.everforest_diagnostic_line_highlight = 1
 --     vim.cmd "colorscheme everforest"
+--   end,
+-- }
+-- return {
+--   -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+--   "catppuccin/nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd [[colorscheme catppuccin]]
 --   end,
 -- }
