@@ -28,8 +28,8 @@ echo "是否需要下载并安装Neovim? (y/n)"
 read install_neovim
 if [[ "$install_neovim" =~ ^[Yy]$ ]]; then
     # 下载并安装 Neovim
-    echo "下载并安装 Neovim..."
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+    echo "下载并安装 Neovim(v.0.10.3)..."
+    wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim-linux64.tar.gz
     tar xzvf nvim-linux64.tar.gz
     mv nvim-linux64 /usr/local/nvim
     rm -rf nvim-linux64.tar.gz
