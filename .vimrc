@@ -1,3 +1,4 @@
+" basic
 set nobackup
 set noswapfile
 set nu
@@ -8,6 +9,8 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set wildmenu
+set cursorline
+set clipboard=unnamedplus
 
 colorscheme retrobox
 set background=dark
@@ -33,6 +36,14 @@ call plug#end()
 inoremap jk <ESC>
 vnoremap jk <ESC>
 
+inoremap ' ''<Left>
+inoremap " ""<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap < <><Left>
+
+
 nnoremap <silent> <Space>sv :vsplit<CR>
 nnoremap <silent> <Space>sh :split<CR>
 nnoremap <C-h> <C-w>h 
@@ -51,7 +62,9 @@ inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm(): "\<TAB>"
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> gd :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> gr :call CocAction('jumpReferences')<CR>
-
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " automatic command
 autocmd filetype rust nnoremap <Space>sr : <bar>exec 'RustRun'<CR>
@@ -67,3 +80,12 @@ let g:rustfmt_autosave=1
 let g:syntastic_rust_checkers = ['cargo']
 
 
+" lsp server 
+" rust : coc-rust-analyzer
+" python : coc-pyright
+" C++/C : coc-clangd
+" shell : coc-sh   
+" md : coc-markdownlint
+" html : coc-html
+" ts/js : coc-tsserver
+" css : coc-css
