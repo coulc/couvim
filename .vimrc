@@ -11,6 +11,7 @@ set expandtab
 set wildmenu
 set cursorline
 set clipboard=unnamedplus
+set relativenumber
 
 colorscheme retrobox
 set background=dark
