@@ -13,7 +13,7 @@ set cursorline
 set clipboard=unnamedplus
 set relativenumber
 
-colorscheme retrobox
+"colorscheme retrobox
 set background=dark
 syntax enable 
 filetype plugin indent on
@@ -29,9 +29,10 @@ Plug 'vim-syntastic/syntastic'
 Plug 'cespare/vim-toml'
 Plug 'junegunn/fzf' ,  {'do': { -> fzf#install()}}
 Plug 'junegunn/fzf.vim'
-
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
+colorscheme onedark
 
 " keybinding
 inoremap jk <ESC>
