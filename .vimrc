@@ -4,6 +4,7 @@ set noswapfile
 set nu
 set ai 
 set si
+set scrolloff=5
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
