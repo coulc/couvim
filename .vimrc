@@ -38,12 +38,12 @@ colorscheme onedark
 inoremap jk <ESC>
 vnoremap jk <ESC>
 
-inoremap ' ''<Left>
-inoremap " ""<Left>
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap < <><Left>
+"inoremap ' ''<Left>
+"inoremap " ""<Left>
+"inoremap ( ()<Left>
+"inoremap [ []<Left>
+"inoremap { {}<Left>
+"inoremap < <><Left>
 
 
 nnoremap <silent> <Space>sv :vsplit<CR>
@@ -64,6 +64,7 @@ inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm(): "\<TAB>"
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> gd :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> gr :call CocAction('jumpReferences')<CR>
+nnoremap <silent> <Space>rn <Plug>(coc-rename)
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -91,3 +92,4 @@ let g:syntastic_rust_checkers = ['cargo']
 " html : coc-html
 " ts/js : coc-tsserver
 " css : coc-css
+" 符号自动补全 : coc-pairs
