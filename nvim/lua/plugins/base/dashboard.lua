@@ -1,17 +1,22 @@
 return {
   "nvimdev/dashboard-nvim",
-
   event = "VimEnter",
-
   opts = function()
     local logo = [[
-██╗  ██╗██╗███╗   ██╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-██║ ██╔╝██║████╗  ██║██╔════╝ ██║   ██║██║████╗ ████║
-█████╔╝ ██║██╔██╗ ██║██║  ███╗██║   ██║██║██╔████╔██║
-██╔═██╗ ██║██║╚██╗██║██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║  ██╗██║██║ ╚████║╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-        ]]
+
+     ██▓     █    ██  ▄████▄   ██▓ █    ██   ██████  ██ ▄█▀▄▄▄      
+     ▓██▒     ██  ▓██▒▒██▀ ▀█  ▓██▒ ██  ▓██▒▒██    ▒  ██▄█▒▒████▄    
+     ▒██░    ▓██  ▒██░▒▓█    ▄ ▒██▒▓██  ▒██░░ ▓██▄   ▓███▄░▒██  ▀█▄  
+     ▒██░    ▓▓█  ░██░▒▓▓▄ ▄██▒░██░▓▓█  ░██░  ▒   ██▒▓██ █▄░██▄▄▄▄██ 
+     ░██████▒▒▒█████▓ ▒ ▓███▀ ░░██░▒▒█████▓ ▒██████▒▒▒██▒ █▄▓█   ▓██▒
+     ░ ▒░▓  ░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░░▓  ░▒▓▒ ▒ ▒ ▒ ▒▓▒ ▒ ░▒ ▒▒ ▓▒▒▒   ▓▒█░
+     ░ ░ ▒  ░░░▒░ ░ ░   ░  ▒    ▒ ░░░▒░ ░ ░ ░ ░▒  ░ ░░ ░▒ ▒░ ▒   ▒▒ ░
+       ░ ░    ░░░ ░ ░ ░         ▒ ░ ░░░ ░ ░ ░  ░  ░  ░ ░░ ░  ░   ▒   
+           ░  ░   ░     ░ ░       ░     ░           ░  ░  ░        ░  ░
+
+
+
+    ]]
 
     -- logo = string.rep("\n", 4) .. logo .. "\n"
     --                                              
@@ -36,13 +41,7 @@ return {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = "Telescope find_files",                           desc = " Find File",        icon = " ",  key = "f" },
-          { action = "ene | startinsert",                              desc = " New File",        icon = " ",  key = "n" },
-					{ action = "Telescope oldfiles",                             desc = " Recent Files",    icon = " ",  key = "o" },
-					{ action = "Telescope live_grep",                            desc = " Find Keywords",   icon = " ",	key = "g" },
-					{ action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ",  key = "s" },
           { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ",  key = "l" },
-          { action = "Telescope projects",                             desc = " Projects",        icon = " ",  key = "p"  },
           { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ",  key = "q" },
 
         },
