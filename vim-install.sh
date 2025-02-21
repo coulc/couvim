@@ -8,7 +8,6 @@ rm -rf /usr/share/fonts/README.md  /usr/share/fonts/OFL.txt
 fc-cache -fv
 rm -rf JetBrainsMono.tar.xz
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 cp .vimrc ~/
