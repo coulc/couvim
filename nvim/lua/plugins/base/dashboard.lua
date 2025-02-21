@@ -4,15 +4,9 @@ return {
   opts = function()
     local logo = [[
 
-     ██▓     █    ██  ▄████▄   ██▓ █    ██   ██████  ██ ▄█▀▄▄▄      
-     ▓██▒     ██  ▓██▒▒██▀ ▀█  ▓██▒ ██  ▓██▒▒██    ▒  ██▄█▒▒████▄    
-     ▒██░    ▓██  ▒██░▒▓█    ▄ ▒██▒▓██  ▒██░░ ▓██▄   ▓███▄░▒██  ▀█▄  
-     ▒██░    ▓▓█  ░██░▒▓▓▄ ▄██▒░██░▓▓█  ░██░  ▒   ██▒▓██ █▄░██▄▄▄▄██ 
-     ░██████▒▒▒█████▓ ▒ ▓███▀ ░░██░▒▒█████▓ ▒██████▒▒▒██▒ █▄▓█   ▓██▒
-     ░ ▒░▓  ░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░░▓  ░▒▓▒ ▒ ▒ ▒ ▒▓▒ ▒ ░▒ ▒▒ ▓▒▒▒   ▓▒█░
-     ░ ░ ▒  ░░░▒░ ░ ░   ░  ▒    ▒ ░░░▒░ ░ ░ ░ ░▒  ░ ░░ ░▒ ▒░ ▒   ▒▒ ░
-       ░ ░    ░░░ ░ ░ ░         ▒ ░ ░░░ ░ ░ ░  ░  ░  ░ ░░ ░  ░   ▒   
-           ░  ░   ░     ░ ░       ░     ░           ░  ░  ░        ░  ░
+
+
+
 
 
 
@@ -41,8 +35,8 @@ return {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ",  key = "l" },
-          { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ",  key = "q" },
+          { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
+          { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = " ", key = "q" },
 
         },
 
