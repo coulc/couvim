@@ -20,14 +20,14 @@ return {
     cmp.setup {
       formatting = {
         format = lspkind.cmp_format {
-          mode = "symbol_text", 
+          mode = "symbol_text",
           maxwidth = {
-            menu = 50, 
-            abbr = 50, 
+            menu = 50,
+            abbr = 50,
           },
           ellipsis_char = "...",
           show_labelDetails = true,
-          symbol_map = { 
+          symbol_map = {
             Text = "󰉿",
             Method = "󰆧",
             Function = "󰊕",
@@ -56,13 +56,13 @@ return {
           },
         },
       },
-  
+
       -- window = {
       --   completion = {
-      --     border = "rounded", 
+      --     border = "rounded",
       --   },
       --   documentation = {
-      --     border = "rounded", 
+      --     border = "rounded",
       --   },
       -- },
 
@@ -75,20 +75,20 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert {
-        ["<C-k>"] = cmp.mapping.select_prev_item(), 
-        ["<C-j>"] = cmp.mapping.select_next_item(), 
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4), 
-        ["<C-f>"] = cmp.mapping.scroll_docs(4), 
-        ["<C-Space>"] = cmp.mapping.complete(), 
-        ["<C-e>"] = cmp.mapping.abort(), 
-        ["<CR>"] = cmp.mapping.confirm { select = false }, 
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm { select = false },
       },
 
-      sources = cmp.config.sources { 
-        { name = "nvim_lsp" }, 
-        { name = "luasnip" }
+      sources = cmp.config.sources {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "buffer" },
-        { name = "path" }, 
+        { name = "path" },
       },
 
       cmp.setup.cmdline(":", {
