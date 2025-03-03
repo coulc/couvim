@@ -16,7 +16,7 @@ apt update && apt install  fzf python3.12-venv git gcc npm wget curl unzip && ap
 # neovim
 wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
-mv nvim-linux64 /usr/local/nvim
+cp -r nvim-linux64 /usr/local/nvim
 rm -rf nvim-linux64.tar.gz
 ln -sf /usr/local/nvim/bin/nvim /usr/local/bin/nv
 mv nvim $HOME/.config/nvim
