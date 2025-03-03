@@ -4,36 +4,29 @@ return {
   opts = function()
     local logo = [[
 
-
-
-
-
-
+         
+ ▄████▄   ▒█████   █    ██  ██▒   █▓ ██▓ ███▄ ▄███▓
+ ▒██▀ ▀█  ▒██▒  ██▒ ██  ▓██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+ ▒▓█    ▄ ▒██░  ██▒▓██  ▒██░ ▓██  █▒░▒██▒▓██    ▓██░
+ ▒▓▓▄ ▄██▒▒██   ██░▓▓█  ░██░  ▒██ █░░░██░▒██    ▒██ 
+ ▒ ▓███▀ ░░ ████▓▒░▒▒█████▓    ▒▀█░  ░██░▒██▒   ░██▒
+ ░ ░▒ ▒  ░░ ▒░▒░▒░ ░▒▓▒ ▒ ▒    ░ ▐░  ░▓  ░ ▒░   ░  ░
+   ░  ▒     ░ ▒ ▒░ ░░▒░ ░ ░    ░ ░░   ▒ ░░  ░      ░
+   ░        ░ ░ ░ ▒   ░░░ ░ ░      ░░   ▒ ░░      ░   
+   ░ ░          ░ ░     ░           ░   ░         ░   
+   ░                               ░                  
 
     ]]
 
-    -- logo = string.rep("\n", 4) .. logo .. "\n"
-    --                                              
-    --       ████ ██████           █████      ██
-    --      ███████████             █████ 
-    --      █████████ ███████████████████ ███   ███████████
-    --     █████████  ███    █████████████ █████ ██████████████
-    --    █████████ ██████████ █████████ █████ █████ ████ █████
-    --  ███████████ ███    ███ █████████ █████ █████ ████ █████
-    -- ██████  █████████████████████ ████ █████ █████ ████ ██████
-    --
-    logo = string.rep("\n", 3) .. logo .. "\n\n"
+    logo = string.rep("\n", 5) .. logo .. "\n\n"
 
     local opts = {
       theme = "doom",
       hide = {
-        -- this is taken care of by lualine
-        -- enabling this messes up the actual laststatus setting after loading a file
         statusline = true,
       },
       config = {
         header = vim.split(logo, "\n"),
-        -- stylua: ignore
         center = {
           { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
           { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = " ", key = "q" },
@@ -56,7 +49,6 @@ return {
       button.key_format = "  %s"
     end
 
-    -- open dashboard after closing lazy
     if vim.o.filetype == "lazy" then
       vim.api.nvim_create_autocmd("WinClosed", {
         pattern = tostring(vim.api.nvim_get_current_win()),
@@ -72,3 +64,4 @@ return {
     return opts
   end,
 }
+

@@ -11,32 +11,15 @@ return {
     local mason_lspconfig = require "mason-lspconfig"
     local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        --`:help vim.lsp.*`
         local opts = { buffer = ev.buf, silent = true }
         opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- 映射以在必要时重新启动lsp
+        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) 
       end,
     })
-
-    -- 高亮行 但是得配合everforset主题使用
-    -- local diagnostics = {
-    --   Error = { icon = "󱎘", hl = "DiagnosticSignError", linehl = "ErrorLine" },
-    --   Warn = { icon = "", hl = "DiagnosticSignWarn", linehl = "WarningLine" },
-    --   Info = { icon = "󰋽", hl = "DiagnosticSignInfo", linehl = "InfoLine" },
-    --   Hint = { icon = "󱐋", hl = "DiagnosticSignHint", linehl = "HintLine" },
-    -- }
-    --
-    -- for type, data in pairs(diagnostics) do
-    --   vim.fn.sign_define("DiagnosticSign" .. type, {
-    --     text = data.icon,
-    --     texthl = data.hl,
-    --     linehl = data.linehl,
-    --   })
-    -- end
 
     local diagnostics = {
       Error = { icon = "󱎘", hl = "DiagnosticSignError" },
@@ -89,10 +72,7 @@ return {
     }
   end,
   vim.diagnostic.config {
-    virtual_text = {
-      prefix = " 󰊠 ", --    󰑊
-      spacing = 4,
-    },
+    virtual_text = false,
     signs = true,
     underline = false,
     severity_sort = true,

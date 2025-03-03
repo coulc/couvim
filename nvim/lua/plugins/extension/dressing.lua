@@ -1,4 +1,4 @@
-return { -- 可视化ui
+return { 
   "stevearc/dressing.nvim",
   event = "BufRead",
 }

@@ -9,19 +9,15 @@ return {
     local treesitter = require "nvim-treesitter.configs"
 
     treesitter.setup {
-      -- 启用语法高亮
       highlight = {
         enable = true,
       },
-      -- 启用缩进
       indent = {
         enable = true,
       },
-      -- 启用自动标记
       autotag = {
         enable = true,
       },
-      -- 语言解析器 TSInstall ...
       ensure_installed = {
         "vim",
         "lua",

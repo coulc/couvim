@@ -93,4 +93,3 @@ let g:syntastic_rust_checkers = ['cargo']
 " html : coc-html
 " ts/js : coc-tsserver
 " css : coc-css
-" 符号自动补全 : coc-pairs

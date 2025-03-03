@@ -5,13 +5,11 @@ return {
     local conform = require "conform"
 
     conform.setup {
-      -- 每种不同文件类型的格式化程序
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
         go = { "goimports" },
       },
-      -- 启动保存功能的格式
       format_on_save = {
         lsp_fallback = true,
         async = false,
@@ -19,7 +17,6 @@ return {
       },
     }
 
-    -- 使用快捷键格式化特定范围的文本
     vim.keymap.set({ "n", "v" }, "<leader>gs", function()
       conform.format {
         lsp_fallback = true,

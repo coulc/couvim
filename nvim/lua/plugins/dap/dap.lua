@@ -1,11 +1,10 @@
 return {
   "mfussenegger/nvim-dap",
-  -- event = "VeryLazy",
   cmd = "DapContinue",
   dependencies = {
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
-    "nvim-neotest/nvim-nio", -- dapui
+    "nvim-neotest/nvim-nio", 
     "nvim-telescope/telescope-dap.nvim",
     { "mfussenegger/nvim-dap-python", event = "BufReadPre" },
     "leoluz/nvim-dap-go",
@@ -15,7 +14,7 @@ return {
     local dap = require "dap"
     local dapui = require "dapui"
     local dvt = require "nvim-dap-virtual-text"
-    -- 插件自动配置
+
     require("dap-python").setup()
     require("dap-go").setup()
 
@@ -65,8 +64,6 @@ return {
       dap.terminate()
     end)
 
-    -- dapui
-    -- DapTerminate   exit dapui
     dapui = require "dapui"
     dapui.setup()
     dap.listeners.before.attach.dapui_config = function()
@@ -81,12 +78,9 @@ return {
     dap.listeners.before.event_exited.dapui_config = function()
       dapui.close()
     end
-    --
-    -- nvim-dap-virtual-text
+
     dvt.setup()
 
-    -- 设置样式
-    -- vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
     -- h dap.txt
     vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "", linehl = "", numhl = "" })
     vim.fn.sign_define("DapStopped", { text = "󰁕 ", texthl = "", linehl = "", numhl = "" })

@@ -2,7 +2,6 @@ return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
   tag = "0.1.8",
-  -- or                              , branch = '0.1.x',
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -38,12 +37,9 @@ return {
 
         mappings = {
           i = {
-            -- 上下移动选择文件
             ["<C-j>"] = "move_selection_next",
             ["<C-k>"] = "move_selection_previous",
-            -- 关闭窗口
             ["<leader>f"] = "close",
-            -- 预览窗口上下移动
             ["<C-u>"] = "preview_scrolling_up",
             ["<C-d>"] = "preview_scrolling_down",
           },

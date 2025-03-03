@@ -1,4 +1,5 @@
 return {
+  -- https://github.com/jesseduffield/lazygit
   "kdheepak/lazygit.nvim",
   lazy = true,
   cmd = {
@@ -16,4 +17,3 @@ return {
   },
 }
 
--- https://github.com/jesseduffield/lazygit
