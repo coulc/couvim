@@ -20,26 +20,20 @@ return {
             end,
         })
 
-        local diagnostics = {
-            Error = { icon = "󱎘", hl = "DiagnosticSignError" },
-            Warn = { icon = "", hl = "DiagnosticSignWarn" },
-            Info = { icon = "", hl = "DiagnosticSignInfo" },
-            Hint = { icon = "󱐋", hl = "DiagnosticSignHint" },
-        }
-        for type, data in pairs(diagnostics) do
-            vim.fn.sign_define("DiagnosticSign" .. type, {
-                text = data.icon,
-                texthl = data.hl,
-            })
-        end
-
+        vim.diagnostic.config({
+            virtual_text = false,
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "󱎘",
+                    [vim.diagnostic.severity.WARN] = "",
+                    [vim.diagnostic.severity.INFO] = "",
+                    [vim.diagnostic.severity.HINT] = "󱐋",
+                },
+            },
+            underline = false,
+            severity_sort = true,
+        })
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
     end,
-    vim.diagnostic.config {
-        virtual_text = false,
-        signs = true,
-        underline = false,
-        severity_sort = true,
-    },
 }

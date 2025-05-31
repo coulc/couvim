@@ -40,6 +40,6 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 vim.o.wildmenu = true
 vim.o.shortmess = vim.o.shortmess .. "c"
-vim.o.pumheight = 10
+vim.o.pumheight = 20
 vim.o.showtabline = 2
 vim.o.showmode = false
