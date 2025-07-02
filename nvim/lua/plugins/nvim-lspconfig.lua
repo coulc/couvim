@@ -21,7 +21,7 @@ return {
         })
 
         vim.diagnostic.config({
-            virtual_text = false,
+            virtual_text = true,
             signs = {
                 text = {
                     [vim.diagnostic.severity.ERROR] = "󱎘",
@@ -34,6 +34,6 @@ return {
             severity_sort = true,
         })
         local capabilities = cmp_nvim_lsp.default_capabilities()
-
     end,
 }
+

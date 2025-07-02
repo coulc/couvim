@@ -17,7 +17,7 @@ return {
 
 
     require('mason-lspconfig').setup({
-      automatic_installation = true, 
+      automatic_installation = true,
       handlers = {
         function(server_name)
           require('lspconfig')[server_name].setup({})
@@ -29,6 +29,7 @@ return {
       ensure_installed = {
         'ts_ls',
         'lua_ls',
+        'gopls',
         'json-lsp',
         'css-lsp',
         'html-lsp',

@@ -20,3 +20,8 @@ map("v", "jk", "<ESC>", opt)
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
 
 
+-- bufferline
+map("n", "<A-l>", ":BufferLineCycleNext<CR>", opt) 
+map("n", "<A-h>", ":BufferLineCyclePrev<CR>", opt) 
+map("n", "<leader>bc", ":bdelete<CR>", { desc = "关闭当前 buffer"})
+map("n", "<leader>bo", ":%bd|e#|bd#<CR>", { desc = "关闭其他 buffer" })  
